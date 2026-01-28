@@ -1,0 +1,31 @@
+5. Proxy Reverso / Load Balancer (Foco: Infraestrutura e Distribuição de Carga)
+Um intermediário que recebe requisições e as distribui para múltiplos servidores
+"dummy" rodando no backend.
+
+• O Desafio: Gerenciar o tráfego e garantir que nenhum servidor fique
+sobrecarregado.
+
+• Requisitos Básicos:
+o O aluno sobe 3 servidores simples (pode ser o do projeto 1) em
+portas diferentes (8001, 8002, 8003).
+
+o O Load Balancer roda na porta 80.
+
+o Implementar algoritmo Round Robin (um para cada, na sequência).
+
+• Funcionalidades Extras:
+o Health Check: O Load Balancer para de mandar tráfego se um dos
+servidores cair (não responder).
+
+o Cache simples: Se a mesma requisição for feita duas vezes,
+responder direto da memória sem consultar o backend
+
+cmd do trabalho:
+
+pip install flask
+
+pip install requests
+
+python server.py 8001
+//     //        8002
+//     //        8003

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Acesso Restrito</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .login-container {
+            width: 350px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            text-align: center;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 5px;
+        }
+        button {
+            width: 48%;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-login { background: #00ff00; color: black; }
+        .btn-register { background: #333; color: white; border: 1px solid #555; }
+        .btn-login:hover { background: #00cc00; }
+        .error-msg { color: #ff4444; margin-bottom: 15px; font-weight: bold; }
+    </style>
+</head>
+<body style="background: #050505;">
+
+    <div class="login-container">
+        <h2 style="margin-top:0">🔒 ACESSO SEGURO</h2>
+        <p>Identifique-se para acessar o Load Balancer</p>
+        
+        {% if error %}
+            <div class="error-msg">⚠️ {{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Usuário" required autocomplete="off">
+            <input type="password" name="password" placeholder="Senha" required>
+            
+            <div style="display: flex; justify-content: space-between;">
+                <button type="submit" name="action" value="login" class="btn-login">ENTRAR</button>
+                <button type="submit" name="action" value="register" class="btn-register">CADASTRAR</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

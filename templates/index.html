@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Server {{ server_port }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="port-{{ server_port }}">
+    <div class="server-card">
+        <h1>Servidor Backend Ativo</h1>
+        <div class="port-number">{{ server_port }}</div>
+        <div class="status">Status: Operacional 🟢</div>
+    </div>
+</body>
+</html>

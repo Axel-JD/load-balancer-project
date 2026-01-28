@@ -1,0 +1,88 @@
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    transition: background-color 0.5s ease;
+}
+
+/* O Cartão Central */
+.server-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transition: transform 0.3s ease;
+}
+
+.server-card:hover {
+    transform: translateY(-5px);
+}
+
+h1 { color: #333; margin-bottom: 15px; font-size: 1.5rem; }
+.port-number { font-size: 4rem; font-weight: bold; margin: 20px 0; color: #555; }
+.status { display: inline-block; padding: 5px 15px; border-radius: 50px; background: #e2e6ea; color: #555; font-size: 0.9rem; }
+
+/* --- CORES ESPECÍFICAS PARA CADA SERVIDOR --- */
+/* O truque: o body vai ter uma classe com o número da porta */
+
+/* Servidor 8001: Tema Azul */
+body.port-8001 { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+body.port-8001 .port-number { color: #0072ff; }
+body.port-8001 .status { background: #cce5ff; color: #004085; }
+
+/* Servidor 8002: Tema Laranja/Amarelo */
+body.port-8002 { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+body.port-8002 .port-number { color: #f7971e; }
+body.port-8002 .status { background: #fff3cd; color: #856404; }
+
+/* Servidor 8003: Tema Verde */
+body.port-8003 { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+body.port-8003 .port-number { color: #11998e; }
+body.port-8003 .status { background: #d4edda; color: #155724; }
+
+/* --- TEMA DA TELA DE BLOQUEIO (429) --- */
+body.blocked {
+    background: linear-gradient(135deg, #870000 0%, #190a05 100%);
+    color: white;
+}
+
+body.blocked .server-card {
+    background: #2c0b0e; /* Fundo escuro para o cartão */
+    border: 2px solid #ff4444; /* Borda vermelha brilhante */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4); /* Brilho vermelho em volta */
+}
+
+body.blocked h1 {
+    color: #ff6b6b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+body.blocked .message {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-top: 15px;
+}
+
+body.blocked .icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    display: block;
+    animation: pulse 1s infinite; /* Faz o ícone pulsar */
+}
+
+/* Animação de pulsar para o ícone de bloqueio */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

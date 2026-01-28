@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACESSO BLOQUEADO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="blocked">
+    <div class="server-card">
+        <div class="icon">⛔</div>
+        <h1>Acesso Negado</h1>
+        <div class="port-number" style="font-size: 2rem; color: #ff4444;">IP BLOQUEADO</div>
+        
+        <p class="message">
+            Seu IP excedeu o limite de segurança.<br>
+            <strong>Proteção contra DDoS Ativada.</strong>
+        </p>
+        
+        <div class="status" style="background: #500000; color: #ff9999; margin-top: 20px;">
+            Erro 429: Too Many Requests
+        </div>
+    </div>
+</body>
+</html>
